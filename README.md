@@ -17,7 +17,7 @@ Test suite contains tests for following providers:
 ## Test algorithm: eviction
 Test algorithm is implemented using three threads (T1, T2, T3).
 
-When cache provider blocks (uses locks) on eviction. When eviction blocks, flow is:
+When cache provider blocks (uses locks) on eviction, flow is:
 
 1. T1: Wait for Get awesome-key
 2. T2: Get awesome-key
