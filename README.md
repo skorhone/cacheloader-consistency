@@ -2,11 +2,12 @@
 This is a test suite for validating, if cache provider implements strong consistency on
 concurrent cache modifications.
 
-Use of provider that does not provide strong consistency may result to stale data in cache.
+Use of provider that does not provide strong consistency may result to stale being returned from 
+ cache.
 
 Currently this test suite contains tests for eviction
 
-## Providers in suite
+## Providers
 Test suite contains tests for following providers:
 
 * EhCache2 (fail)
@@ -48,6 +49,6 @@ If cache provider does not block on eviction, flow is:
 11. T1: Validate cache state
 
 Unfortunately currently all providers that do not block, fail the test. Passing non-blocking
-implementation requires cache provider to implement eventual consistency based on timestamps
-(or counters). Updates during loading should *always* cause loaded data to be discarded from
-cache.
+implementation requires cache provider to implement eventual consistency 
+(Based on timestamp or counters). Updates during loading should *always* cause loaded data to be discarded from
+cache. However to avoid thundering herd problem, data should be returned to those who requested it before eviction occured.
