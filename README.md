@@ -1,6 +1,6 @@
 # cacheloader-consistency-test
 This is a test suite for validating, if cache provider implements strong consistency on
-concurrent actions.
+concurrent cache modifications.
 
 Use of provider that does not provide strong consistency, may result to stale data in cache.
 
