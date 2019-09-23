@@ -57,8 +57,7 @@ When using an in-process (non-serializing) cache, most implementations can be
 turned into non-blocking implementations and implementations such as guava
 can be "fixed" with just few lines of code (See GuavaCacheConsistencyTest).
 The trick is to cache memoizes instead of caching actual values. This works
-because caching a memoize is an atomic operation. Caching a value, requires
-loader to be called.    
+because caching a memoize is an atomic operation.
 
 In a distributed cache, passing non-blocking implementation requires
 cache provider to implement eventual consistency (Based on timestamp or
