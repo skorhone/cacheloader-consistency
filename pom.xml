@@ -29,6 +29,7 @@
 		<module>ehcache3-cacheloader-consistency-test</module>
 		<module>caffeine-cacheloader-consistency-test</module>
 		<module>testsupport-cacheloader-consistency-test</module>
+		<module>hazelcast-cacheloader-consistency-test</module>
 	</modules>
 
 	<dependencyManagement>
