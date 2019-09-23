@@ -14,10 +14,13 @@ import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Status;
 import net.sf.ehcache.loader.CacheLoader;
 
-// EHCache 2.x is broken :(
 public class EHCacheConsistencyTest extends AbstractConsistencyTest {
+	// We expect EHCache 2.x to be broken :(
+	//
+	// EHCache is usually used as a distributed cache, so there's nothing
+	// we can do to fix it
 	@Test(expected = AssertionError.class)
-	public void shouldNotReturnEvicted() throws Exception {
+	public void shouldNotReturn() throws Exception {
 		Object lock = new Object();
 		CacheManager manager = CacheManager.create();
 		try {

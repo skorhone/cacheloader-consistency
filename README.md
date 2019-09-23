@@ -48,7 +48,19 @@ If cache provider does not block on eviction, flow is:
 10. T2: Loaded awesome-key
 11. T1: Validate cache state
 
-Unfortunately currently all providers that do not block, fail the test. Passing non-blocking
-implementation requires cache provider to implement eventual consistency 
-(Based on timestamp or counters). Updates during loading should *always* cause loaded data to be discarded from
-cache. However to avoid thundering herd problem, data should be returned to those who requested it before eviction occured.
+Unfortunately currently all providers that do not block, fail the test.
+Updates during loading should *always* cause loaded data to be discarded from
+cache. And to avoid thundering herd problem, before discarding data, data
+should be returned to those who requested it before update occured.
+
+When using an in-process (non-serializing) cache, most implementations can be
+turned into non-blocking implementations and implementations such as guava
+can be "fixed" with just few lines of code (See GuavaCacheConsistencyTest).
+The trick is to cache memoizes instead of caching actual values. This works
+because caching a memoize is an atomic operation. Caching a value, requires
+loader to be called.    
+
+In a distributed cache, passing non-blocking implementation requires
+cache provider to implement eventual consistency (Based on timestamp or
+counters).
+
