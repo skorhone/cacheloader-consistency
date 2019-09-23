@@ -1,11 +1,11 @@
 # cacheloader-consistency-test
-This is a test suite for validating, if cache provider implements strong consistency on
+This is a test suite for validating, if cache provider implements eventual or strong consistency on
 concurrent cache modifications.
 
-Use of provider that does not provide strong consistency may result to stale being returned from 
+Use of provider that does not provide eventual or strong consistency may result to stale being returned from 
  cache.
 
-Currently this test suite contains tests for eviction
+Currently this test suite contains tests for invalidation
 
 ## Providers
 Test suite contains tests for following providers:
@@ -16,7 +16,7 @@ Test suite contains tests for following providers:
 * Coffeine (ok)
 * Hazelcast (ok)
 
-## Test algorithm: eviction
+## Test algorithm: invalidation
 Test algorithm is implemented using three threads (T1, T2, T3).
 
 When cache provider blocks (uses locks) on eviction, flow is:
