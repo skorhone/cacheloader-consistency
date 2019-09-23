@@ -62,5 +62,5 @@ because caching a memoize is an atomic operation.
 
 In a distributed cache, passing non-blocking implementation requires
 cache provider to implement eventual consistency (Based on timestamp or
-counters).
+counters). To my knowledge, no such implementation exists :-(
 
