@@ -14,6 +14,7 @@ Test suite contains tests for following providers:
 * EhCache3 (ok)
 * Guava (fail)
 * Coffeine (ok)
+* Hazelcast (ok)
 
 ## Test algorithm: eviction
 Test algorithm is implemented using three threads (T1, T2, T3).
